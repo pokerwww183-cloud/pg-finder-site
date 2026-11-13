@@ -22,21 +22,55 @@
             font-weight: bold;
         }
 
-        /* Listing boxes */
-        .listing {
-            border: 1px solid #333;
-            padding: 8px;
+        /* Card photo: same height for all cards (no widths set) */
+        .card-img-top {
+            height: 160px;
+            object-fit: cover;
+        }
+
+        /* Carousel photo: same height for all slides (no widths set) */
+        .carousel-item img {
+            height: 260px;
+            object-fit: cover;
         }
     </style>
 </head>
 <body>
 
-    <!-- Task 4: full-width band holding the PG name -->
+    <!-- Task 1: Navbar (collapses below the lg breakpoint) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">FindMyPG</a>
+
+            <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#mainNav"
+                    aria-controls="mainNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#listings">Listings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#enquiry">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Full-width band holding the PG name -->
     <div class="container-fluid band">
         <p class="band-name">FindMyPG</p>
     </div>
 
-    <!-- Task 1: container with h1 and paragraph -->
+    <!-- Container with h1 and paragraph -->
     <div class="container">
 
         <h1 class="mt-4">Find a PG That Feels Like Home</h1>
@@ -47,7 +81,6 @@
             choose a place that fits your budget and your daily routine.
         </p>
 
-        <!-- Task 2: row with two columns -->
         <div class="row">
 
             <!-- Filter column -->
@@ -86,65 +119,174 @@
             </div>
 
             <!-- Listings column -->
-            <div class="col-md-9">
+            <div class="col-md-9" id="listings">
+
+                <!-- Task 3: Carousel (3 slides, exactly one active) -->
+                <div id="pgCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
+
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#pgCarousel"
+                                data-bs-slide-to="0" class="active"
+                                aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#pgCarousel"
+                                data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#pgCarousel"
+                                data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="slide1.jpg" class="d-block w-100" alt="Comfortable PG room">
+                            <div class="carousel-caption">
+                                <h5>Comfortable Rooms</h5>
+                                <p>Clean, airy rooms with all basic facilities.</p>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <img src="slide2.jpg" class="d-block w-100" alt="Homely food">
+                            <div class="carousel-caption">
+                                <h5>Homely Food</h5>
+                                <p>Tasty meals served fresh every day.</p>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <img src="slide3.jpg" class="d-block w-100" alt="PG near college">
+                            <div class="carousel-caption">
+                                <h5>Close to Colleges and Offices</h5>
+                                <p>Save time on your daily travel.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="carousel-control-prev" type="button"
+                            data-bs-target="#pgCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button"
+                            data-bs-target="#pgCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
                 <h2 class="h5">Listings</h2>
 
-                <!-- Task 3: nested row of six listing boxes -->
+                <!-- Task 2: six cards in the same 1 / 2 / 3 per row grid -->
                 <div class="row g-3">
 
                     <div class="col-12 col-sm-6 col-lg-4">
-                        <div class="listing">
-                            <strong>Sunrise PG</strong><br>
-                            Pune<br>
-                            ₹6,500 per month
+                        <div class="card h-100">
+                            <img src="room.jpg" class="card-img-top" alt="PG room">
+                            <div class="card-body">
+                                <h5 class="card-title">Sunrise PG</h5>
+                                <p class="card-text">Pune<br>₹6,500 per month</p>
+                                <a href="#" class="btn btn-primary">View</a>
+                            </div>
                         </div>
                     </div>
 
                     <div class="col-12 col-sm-6 col-lg-4">
-                        <div class="listing">
-                            <strong>Green Nest PG</strong><br>
-                            Mumbai<br>
-                            ₹11,500 per month
+                        <div class="card h-100">
+                            <img src="room.jpg" class="card-img-top" alt="PG room">
+                            <div class="card-body">
+                                <h5 class="card-title">Green Nest PG</h5>
+                                <p class="card-text">Mumbai<br>₹11,500 per month</p>
+                                <a href="#" class="btn btn-primary">View</a>
+                            </div>
                         </div>
                     </div>
 
                     <div class="col-12 col-sm-6 col-lg-4">
-                        <div class="listing">
-                            <strong>Campus Stay</strong><br>
-                            Bengaluru<br>
-                            ₹9,000 per month
+                        <div class="card h-100">
+                            <img src="room.jpg" class="card-img-top" alt="PG room">
+                            <div class="card-body">
+                                <h5 class="card-title">Campus Stay</h5>
+                                <p class="card-text">Bengaluru<br>₹9,000 per month</p>
+                                <a href="#" class="btn btn-primary">View</a>
+                            </div>
                         </div>
                     </div>
 
                     <div class="col-12 col-sm-6 col-lg-4">
-                        <div class="listing">
-                            <strong>HomeAway PG</strong><br>
-                            Delhi<br>
-                            ₹8,000 per month
+                        <div class="card h-100">
+                            <img src="room.jpg" class="card-img-top" alt="PG room">
+                            <div class="card-body">
+                                <h5 class="card-title">HomeAway PG</h5>
+                                <p class="card-text">Delhi<br>₹8,000 per month</p>
+                                <a href="#" class="btn btn-primary">View</a>
+                            </div>
                         </div>
                     </div>
 
                     <div class="col-12 col-sm-6 col-lg-4">
-                        <div class="listing">
-                            <strong>Lake View PG</strong><br>
-                            Hyderabad<br>
-                            ₹7,000 per month
+                        <div class="card h-100">
+                            <img src="room.jpg" class="card-img-top" alt="PG room">
+                            <div class="card-body">
+                                <h5 class="card-title">Lake View PG</h5>
+                                <p class="card-text">Hyderabad<br>₹7,000 per month</p>
+                                <a href="#" class="btn btn-primary">View</a>
+                            </div>
                         </div>
                     </div>
 
                     <div class="col-12 col-sm-6 col-lg-4">
-                        <div class="listing">
-                            <strong>Cozy Corner PG</strong><br>
-                            Pune<br>
-                            ₹4,500 per month
+                        <div class="card h-100">
+                            <img src="room.jpg" class="card-img-top" alt="PG room">
+                            <div class="card-body">
+                                <h5 class="card-title">Cozy Corner PG</h5>
+                                <p class="card-text">Pune<br>₹4,500 per month</p>
+                                <a href="#" class="btn btn-primary">View</a>
+                            </div>
                         </div>
                     </div>
 
                 </div>
+
+                <!-- Task 4: Enquiry form below the cards -->
+                <h2 class="h5 mt-5" id="enquiry">Enquiry Form</h2>
+
+                <form action="" method="get" class="mb-5">
+
+                    <div class="mb-3">
+                        <label for="enq-name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="enq-name" name="name">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="enq-email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="enq-email" name="email" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="enq-city" class="form-label">City</label>
+                        <select class="form-select" id="enq-city" name="city">
+                            <option>Pune</option>
+                            <option>Mumbai</option>
+                            <option>Bengaluru</option>
+                            <option>Delhi</option>
+                        </select>
+                    </div>
+
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" id="enq-agree" name="agree">
+                        <label class="form-check-label" for="enq-agree">
+                            I agree to be contacted
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+
             </div>
 
         </div>
     </div>
+
+    <!-- Bootstrap JavaScript bundle (needed for navbar toggler and carousel) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
