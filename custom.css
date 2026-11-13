@@ -45,3 +45,13 @@
     background-color: var(--pg-brand);
     color: #ffffff;
 }
+
+/* ---------- Session 12: active navbar link ---------- */
+/* every link gets a transparent border so the active one does not make the bar jump */
+.navbar-nav .nav-link {
+    border-bottom: 3px solid transparent;
+}
+
+.navbar-nav .nav-link.active {
+    border-bottom-color: var(--pg-brand);
+}
